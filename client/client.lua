@@ -151,7 +151,7 @@ Citizen.CreateThread(function ()
         elseif QuestActive then
             VORPcore.NotifyTip(_U('AlreadyActiveQuest'),"right",4000)
         elseif AbortedQuest then
-            VORPcore.NotifyTip(_U('YouAbortedAlready') .. AbortQuestTimer,"right",4000)
+            VORPcore.NotifyTip(_U('YouAbortedAlready') .. Config.AbortQuestTimer / 60,"right",4000)
         end
     end)
     if Config.TokenShopActive then
