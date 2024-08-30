@@ -96,20 +96,51 @@ RegisterServerEvent('mms-quests:server:Reward',function(src,QuestData)
     end
 end)
 
-RegisterServerEvent('mms-quests:server:BuyTicket',function(ItemNeed,Price,Item,Count)
+RegisterServerEvent('mms-quests:server:BuyTicket',function(RT)
     local src = source
-    local HasItem = exports.vorp_inventory:getItemCount(src, nil, ItemNeed,nil)
-    if HasItem >= Price then
-        local CanCarry = exports.vorp_inventory:canCarryItem(src, Item, Count)
-        if CanCarry then
-            exports.vorp_inventory:addItem(src, Item, Count, nil, nil)
-            exports.vorp_inventory:subItem(src, ItemNeed, Price, nil, nil)
-            VORPcore.NotifyTip(src,_U('SuccessfullyBoughtTicket'),"right",4000)
+    local Character = VORPcore.getUser(src).getUsedCharacter
+    if RT.RewardItem.Enabled then
+        local HasItem = exports.vorp_inventory:getItemCount(src, nil, RT.ItemNeeded,nil)
+        if HasItem >= RT.Price then
+            local CanCarry = exports.vorp_inventory:canCarryItem(src, RT.RewardItem.Item, RT.RewardItem.Amount)
+            if CanCarry then
+                exports.vorp_inventory:addItem(src, RT.RewardItem.Item, RT.RewardItem.Amount, nil, nil)
+                exports.vorp_inventory:subItem(src, RT.ItemNeeded, RT.Price, nil, nil)
+                VORPcore.NotifyTip(src,_U('SuccessfullyBoughtItem'),"right",4000)
+            else
+                VORPcore.NotifyTip(src,_U('NoInvetorySpace'),"right",4000)
+            end
         else
-            VORPcore.NotifyTip(src,_U('NoInvetorySpace'),"right",4000)
+            VORPcore.NotifyTip(src,_U('NotEnoghToken'),"right",4000)
         end
-    else
-        VORPcore.NotifyTip(src,_U('NotEnoghToken'),"right",4000)
+    elseif RT.RewardWeapon.Enabled then
+        local HasItem = exports.vorp_inventory:getItemCount(src, nil, RT.ItemNeeded,nil)
+        if HasItem >= RT.Price then
+            local CanCarry = exports.vorp_inventory:canCarryWeapons(src, 1, nil, RT.RewardWeapon.Weapon)
+            if CanCarry then
+                exports.vorp_inventory:subItem(src, RT.ItemNeeded, RT.Price, nil, nil)
+                exports.vorp_inventory:createWeapon(src, RT.RewardWeapon.Weapon)
+                VORPcore.NotifyTip(src,_U('SuccessfullyBoughtItem'),"right",4000)
+            else
+                VORPcore.NotifyTip(src,_U('NoInvetorySpace'),"right",4000)
+            end
+        else
+            VORPcore.NotifyTip(src,_U('NotEnoghToken'),"right",4000)
+        end
+    elseif RT.RewardMoney.Enabled then
+        local HasItem = exports.vorp_inventory:getItemCount(src, nil, RT.ItemNeeded,nil)
+        if HasItem >= RT.Price then
+            local CanCarry = exports.vorp_inventory:canCarryWeapons(src, 1, nil, RT.RewardWeapon.Weapon)
+            if CanCarry then
+                exports.vorp_inventory:subItem(src, RT.ItemNeeded, RT.Price, nil, nil)
+                Character.addCurrency(0,RT.Price * RT.RewardMoney.MoneyPerToken)
+                VORPcore.NotifyTip(src,_U('SuccessfullyBoughtItem'),"right",4000)
+            else
+                VORPcore.NotifyTip(src,_U('NoInvetorySpace'),"right",4000)
+            end
+        else
+            VORPcore.NotifyTip(src,_U('NotEnoghToken'),"right",4000)
+        end
     end
 end)
 

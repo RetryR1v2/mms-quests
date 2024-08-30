@@ -13,8 +13,10 @@ local GPSCoords = nil
 local AbortedQuest = false
 local AbortQuestTimer = 0
 local QuestOpened = false
-
-
+local ButtoLabel = 'nil'
+local RT = nil
+local RTNeed = ''
+local RTPrice = 0
 ---------------------------------------------------------------------------------
 
 Citizen.CreateThread(function()
@@ -154,7 +156,7 @@ Citizen.CreateThread(function ()
             VORPcore.NotifyTip(_U('YouAbortedAlready') .. Config.AbortQuestTimer / 60,"right",4000)
         end
     end)
-    if Config.TokenShopActive then
+    if Config.ShopSystemActive then
     QuestMenuPage1:RegisterElement('button', {
         label = _U('QuestShop'),
         style = {
@@ -203,7 +205,7 @@ Citizen.CreateThread(function ()
     -----------------------------------------------------------------------------------
     ------------------------------------ Seite 2 --------------------------------------
     -----------------------------------------------------------------------------------
-    if Config.TokenShopActive then
+    if Config.ShopSystemActive then
     QuestMenuPage2 = QuestMenu:RegisterPage('seite2')
     QuestMenuPage2:RegisterElement('header', {
         value = _U('TokenShopHeader'),
@@ -225,20 +227,24 @@ Citizen.CreateThread(function ()
                 ['border-radius'] = '6px'
             },
     })
-    for i,v in ipairs(Config.TokenShop) do
+    for i,v in ipairs(Config.ShopSystem) do
+        local RT = v
+        if v.RewardItem.Enabled and not v.RewardWeapon.Enabled and not v.RewardMoney.Enabled then
+            ButtonLabel = v.RewardItem.Title .. _U('For') .. v.Price .. _U('BuyForXToken')
+        elseif v.RewardWeapon.Enabled and not v.RewardItem.Enabled and not v.RewardMoney.Enabled then
+            ButtonLabel = v.RewardWeapon.Title .. _U('For') .. v.Price .. _U('BuyForXToken')
+        elseif v.RewardMoney.Enabled and not v.RewardItem.Enabled and not v.RewardWeapon.Enabled then
+            ButtonLabel = v.RewardMoney.Title .. v.Price * v.RewardMoney.MoneyPerToken .. _U('For') .. v.Price .. _U('BuyForXToken')
+        end
         QuestMenuPage2:RegisterElement('button', {
-            label = v.RewardCount .. ' ' .. v.Title .. _U('For') .. v.Price .. _U('BuyForXToken'),
+            label = ButtonLabel,
             style = {
                 ['background-color'] = '#FF8C00',
                 ['color'] = 'orange',
                 ['border-radius'] = '6px'
             },
         }, function()
-            local ItemNeed = v.ItemNeeded
-            local Price = v.Price
-            local Item = v.RewardItem
-            local Count = v.RewardCount
-            TriggerEvent('mms-quests:client:BuyTicket',ItemNeed,Price,Item,Count)
+            TriggerEvent('mms-quests:client:BuyTicket',RT)
         end)
     end
     QuestMenuPage2:RegisterElement('button', {
@@ -496,14 +502,17 @@ end)
 
 RegisterNetEvent('mms-quests:client:DeliverItems')
 AddEventHandler('mms-quests:client:DeliverItems',function(QuestData)
+    local ped = PlayerPedId()
+    Citizen.InvokeNative(0xB31A277C1AC7B7FF, ped, 0, 0, -415456998, 1, 1, 0, 0)
+    Citizen.Wait(3000)
     TriggerServerEvent('mms-quests:client:DeliverItems',QuestData)
 end)
 
 ----------------------------- Buy Ticket -------------------------
 
 RegisterNetEvent('mms-quests:client:BuyTicket')
-AddEventHandler('mms-quests:client:BuyTicket',function(ItemNeed,Price,Item,Count)
-    TriggerServerEvent('mms-quests:server:BuyTicket',ItemNeed,Price,Item,Count)
+AddEventHandler('mms-quests:client:BuyTicket',function(RT)
+    TriggerServerEvent('mms-quests:server:BuyTicket',RT)
 end)
 
 
