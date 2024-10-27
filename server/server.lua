@@ -99,6 +99,8 @@ end)
 RegisterServerEvent('mms-quests:server:BuyTicket',function(RT)
     local src = source
     local Character = VORPcore.getUser(src).getUsedCharacter
+    local EXPGain = Config.GetExp
+    BattlepassReward (src,EXPGain)
     if RT.RewardItem.Enabled then
         local HasItem = exports.vorp_inventory:getItemCount(src, nil, RT.ItemNeeded,nil)
         if HasItem >= RT.Price then
@@ -143,6 +145,14 @@ RegisterServerEvent('mms-quests:server:BuyTicket',function(RT)
         end
     end
 end)
+
+-------------------------------- Battlepass Reward ------------------------------------
+
+function BattlepassReward (src,EXPGain)
+    if Config.BattlepassActive then
+        TriggerEvent('mms-battlepass:server:GainExp',src,EXPGain)
+    end
+end
 
 --------------------------------------------------------------------------------------------------
 -- start version check

@@ -23,6 +23,8 @@
 
 - 1.1.0 Initial Release
 - 1.1.1 New Features
+- 1.1.2 
+- Added Battlepass Support for MMS-Battlepass
 
 # installation 
 

@@ -13,7 +13,14 @@ Config.WHName = 'QuestSystem:' -- name
 Config.WHLogo = '' -- must be 30x30px
 Config.WHFooterLogo = '' -- must be 30x30px
 Config.WHAvatar = '' -- must be 30x30px
+
 -----------------------------------------------------------------------------------------------------
+
+----- mms-Battlepass Settings
+
+Config.BattlepassActive = true  -- Set to True if you got MMS-Battlepass
+Config.GetExp = 50
+
 
 Config.RandomPosition = false
 Config.QuestgeberBlip = true
@@ -257,13 +264,20 @@ Config.Quests ={
 
 Config.ShopSystemActive = true -- if you wanna use a shop in Here
 
-Config.ShopSystem = {  -- ONLY ENABLE 1 Money, Item Or Weapon.
+Config.ShopSystem = {  -- !!!ONLY ENABLE 1 Money, Item Or Weapon. ONYL ENABLE ONE!!!
     {
         ItemNeeded = 'QuestToken',-- DB Name
-        Price = 100,-- Token Neeeded
+        Price = 1,-- Token Neeeded
         RewardItem = {Enabled = false, Title = 'Schildkröte', Item = 'HaustierTicket24' , Amount = 1},
-        RewardWeapon = {Enabled = true, Title = 'Messer', Weapon = 'WEAPON_MELEE_KNIFE'},
-        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 1},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
+        RewardWeapon = {Enabled = false, Title = 'Messer', Weapon = 'WEAPON_MELEE_KNIFE'},
+        RewardMoney = {Enabled = true, Title = 'Token für Geld: ', MoneyPerToken = 2},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
+    },
+    {
+        ItemNeeded = 'QuestToken',-- DB Name
+        Price = 10,-- Token Neeeded
+        RewardItem = {Enabled = false, Title = 'Schildkröte', Item = 'HaustierTicket24' , Amount = 1},
+        RewardWeapon = {Enabled = false, Title = 'Messer', Weapon = 'WEAPON_MELEE_KNIFE'},
+        RewardMoney = {Enabled = true, Title = 'Token für Geld: ', MoneyPerToken = 2},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
     },
     {
         ItemNeeded = 'QuestToken',-- DB Name
