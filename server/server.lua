@@ -93,14 +93,14 @@ RegisterServerEvent('mms-quests:server:Reward',function(src,QuestData)
             VORPcore.AddWebhook(Config.WHTitle, Config.WHLink, _U('WHText') .. Firstname .. ' ' .. Lastname .. _U('WHId') .. CharIdent .. _U('WHGot') .. ItemAmount .. ' ' .. QuestData.RewardItem.Label , Config.WHColor, Config.WHName, Config.WHLogo, Config.WHFooterLogo, Config.WHAvatar)
         end
         TriggerClientEvent('mms-quests:client:EndQuest',src)
+        local EXPGain = Config.GetExp
+        BattlepassReward (src,EXPGain)
     end
 end)
 
 RegisterServerEvent('mms-quests:server:BuyTicket',function(RT)
     local src = source
     local Character = VORPcore.getUser(src).getUsedCharacter
-    local EXPGain = Config.GetExp
-    BattlepassReward (src,EXPGain)
     if RT.RewardItem.Enabled then
         local HasItem = exports.vorp_inventory:getItemCount(src, nil, RT.ItemNeeded,nil)
         if HasItem >= RT.Price then
