@@ -7,7 +7,7 @@ Config.defaultlang = "de_lang" -- Set Language (Current Languages: "de_lang" Ger
 Config.WebHook = true
 
 Config.WHTitle = 'QuestSystem:'
-Config.WHLink = ''  -- Discord WH link Here
+Config.WHLink = 'https://discordapp.com/api/webhooks/1267191760191225926/i_HLoHdvNFqbA8WqDy4_N8ckZfex5aY7LZj2PFNb4QnDpPZkx8NmmD82V5ftK5qyZ_ln'  -- Discord WH link Here
 Config.WHColor = 16711680 -- red
 Config.WHName = 'QuestSystem:' -- name
 Config.WHLogo = '' -- must be 30x30px
@@ -15,6 +15,20 @@ Config.WHFooterLogo = '' -- must be 30x30px
 Config.WHAvatar = '' -- must be 30x30px
 
 -----------------------------------------------------------------------------------------------------
+
+-- Blacklisted Jobs
+
+Config.BlacklistedJobsSytem = true
+Config.BlacklistedJobs = {
+            { Job = 'Police'},
+            { Job = 'Outlaw'},
+            { Job = 'Doktor'},
+        }
+
+-- Cooldown System
+
+Config.CoolDownActive = true
+Config.CooldownTimer = 5 -- time in Min
 
 ----- mms-Battlepass Settings
 
@@ -47,8 +61,7 @@ Config.Quests ={
             { Item = 'wood' , Label = 'Weichholz', Amount = 5},
         },
         RewardItem = { Enabled = true, Item = 'QuestToken', Label = 'Quest Token', RewardItemMin = 10, RewardItemMax = 25}, -- set Enabled to false if you dont wanna Give item
-        RewardMoney = { Enabled = true, RewardMoneyMin = 20, RewardMoneyMax = 35}, -- set Enabled to false if you dont wanna Give Money
-        
+        RewardMoney = { Enabled = true, RewardMoneyMin = 5, RewardMoneyMax = 10}, -- set Enabled to false if you dont wanna Give Money
     },
     {
         Type = 'Bring',
@@ -59,7 +72,7 @@ Config.Quests ={
             { Item = 'hatchet' , Label = 'Axt', Amount = 1},
         },
         RewardItem = { Enabled = true, Item = 'QuestToken', Label = 'Quest Token', RewardItemMin = 10, RewardItemMax = 25}, -- set Enabled to false if you dont wanna Give item
-        RewardMoney = { Enabled = true, RewardMoneyMin = 20, RewardMoneyMax = 35}, -- set Enabled to false if you dont wanna Give Money
+        RewardMoney = { Enabled = true, RewardMoneyMin = 5, RewardMoneyMax = 10}, -- set Enabled to false if you dont wanna Give Money
         
     },
     {
@@ -72,7 +85,7 @@ Config.Quests ={
             { Item = 'wood' , Label = 'Weichholz', Amount = 5},
         },
         RewardItem = { Enabled = true, Item = 'QuestToken', Label = 'Quest Token', RewardItemMin = 10, RewardItemMax = 25}, -- set Enabled to false if you dont wanna Give item
-        RewardMoney = { Enabled = true, RewardMoneyMin = 20, RewardMoneyMax = 35}, -- set Enabled to false if you dont wanna Give Money
+        RewardMoney = { Enabled = true, RewardMoneyMin = 5, RewardMoneyMax = 10}, -- set Enabled to false if you dont wanna Give Money
         
     },
     {
@@ -85,7 +98,7 @@ Config.Quests ={
             { Item = 'Wild_Carrot' , Label = 'Wilde Karotte', Amount = 4},
         },
         RewardItem = { Enabled = true, Item = 'QuestToken', Label = 'Quest Token', RewardItemMin = 10, RewardItemMax = 25}, -- set Enabled to false if you dont wanna Give item
-        RewardMoney = { Enabled = true, RewardMoneyMin = 20, RewardMoneyMax = 35}, -- set Enabled to false if you dont wanna Give Money
+        RewardMoney = { Enabled = true, RewardMoneyMin = 5, RewardMoneyMax = 10}, -- set Enabled to false if you dont wanna Give Money
     },
     {
         Title = 'Lese die Nachricht',
@@ -95,7 +108,7 @@ Config.Quests ={
             { Item = 'ausdauertrank' , Label = 'Ausdauer Trank', Amount = 2},
         },
         RewardItem = { Enabled = true, Item = 'QuestToken', Label = 'Quest Token', RewardItemMin = 10, RewardItemMax = 25}, -- set Enabled to false if you dont wanna Give item
-        RewardMoney = { Enabled = true, RewardMoneyMin = 20, RewardMoneyMax = 35}, -- set Enabled to false if you dont wanna Give Money
+        RewardMoney = { Enabled = true, RewardMoneyMin = 5, RewardMoneyMax = 10}, -- set Enabled to false if you dont wanna Give Money
     },
     {
         Type = 'Bring',
@@ -106,7 +119,7 @@ Config.Quests ={
             { Item = 'water' , Label = 'Wasser', Amount = 20},
         },
         RewardItem = { Enabled = true, Item = 'QuestToken', Label = 'Quest Token', RewardItemMin = 10, RewardItemMax = 25}, -- set Enabled to false if you dont wanna Give item
-        RewardMoney = { Enabled = true, RewardMoneyMin = 20, RewardMoneyMax = 35}, -- set Enabled to false if you dont wanna Give Money
+        RewardMoney = { Enabled = true, RewardMoneyMin = 5, RewardMoneyMax = 10}, -- set Enabled to false if you dont wanna Give Money
     },
     {
         Type = 'Bring',
@@ -117,7 +130,7 @@ Config.Quests ={
             { Item = 'shovel' , Label = 'Schaufel', Amount = 1},
         },
         RewardItem = { Enabled = true, Item = 'QuestToken', Label = 'Quest Token', RewardItemMin = 10, RewardItemMax = 25}, -- set Enabled to false if you dont wanna Give item
-        RewardMoney = { Enabled = true, RewardMoneyMin = 20, RewardMoneyMax = 35}, -- set Enabled to false if you dont wanna Give Money
+        RewardMoney = { Enabled = true, RewardMoneyMin = 5, RewardMoneyMax = 10}, -- set Enabled to false if you dont wanna Give Money
     },
     {
         Type = 'Bring',
@@ -129,7 +142,7 @@ Config.Quests ={
             { Item = 'Jagdwurst' , Label = 'Jagdwurst', Amount = 2},
         },
         RewardItem = { Enabled = true, Item = 'QuestToken', Label = 'Quest Token', RewardItemMin = 10, RewardItemMax = 25}, -- set Enabled to false if you dont wanna Give item
-        RewardMoney = { Enabled = true, RewardMoneyMin = 20, RewardMoneyMax = 35}, -- set Enabled to false if you dont wanna Give Money
+        RewardMoney = { Enabled = true, RewardMoneyMin = 5, RewardMoneyMax = 10}, -- set Enabled to false if you dont wanna Give Money
     },
     {
         Type = 'Bring',
@@ -141,7 +154,7 @@ Config.Quests ={
             { Item = 'wood' , Label = 'Weichholz', Amount = 5},
         },
         RewardItem = { Enabled = true, Item = 'QuestToken', Label = 'Quest Token', RewardItemMin = 10, RewardItemMax = 25}, -- set Enabled to false if you dont wanna Give item
-        RewardMoney = { Enabled = true, RewardMoneyMin = 20, RewardMoneyMax = 35}, -- set Enabled to false if you dont wanna Give Money
+        RewardMoney = { Enabled = true, RewardMoneyMin = 5, RewardMoneyMax = 10}, -- set Enabled to false if you dont wanna Give Money
     },
     {
         Type = 'Bring',
@@ -152,7 +165,7 @@ Config.Quests ={
             { Item = 'whiskey' , Label = 'Whiskey', Amount = 2},
         },
         RewardItem = { Enabled = true, Item = 'QuestToken', Label = 'Quest Token', RewardItemMin = 10, RewardItemMax = 25}, -- set Enabled to false if you dont wanna Give item
-        RewardMoney = { Enabled = true, RewardMoneyMin = 20, RewardMoneyMax = 35}, -- set Enabled to false if you dont wanna Give Money
+        RewardMoney = { Enabled = true, RewardMoneyMin = 5, RewardMoneyMax = 10}, -- set Enabled to false if you dont wanna Give Money
     },
     {
         Type = 'Bring',
@@ -163,7 +176,7 @@ Config.Quests ={
             { Item = 'Handtuch' , Label = 'Handtuch', Amount = 1},
         },
         RewardItem = { Enabled = true, Item = 'QuestToken', Label = 'Quest Token', RewardItemMin = 10, RewardItemMax = 25}, -- set Enabled to false if you dont wanna Give item
-        RewardMoney = { Enabled = true, RewardMoneyMin = 20, RewardMoneyMax = 35}, -- set Enabled to false if you dont wanna Give Money
+        RewardMoney = { Enabled = true, RewardMoneyMin = 5, RewardMoneyMax = 10}, -- set Enabled to false if you dont wanna Give Money
     },
     {
         Type = 'Bring',
@@ -174,7 +187,7 @@ Config.Quests ={
             { Item = 'Nagel' , Label = 'Nägel', Amount = 8},
         },
         RewardItem = { Enabled = true, Item = 'QuestToken', Label = 'Quest Token', RewardItemMin = 10, RewardItemMax = 25}, -- set Enabled to false if you dont wanna Give item
-        RewardMoney = { Enabled = true, RewardMoneyMin = 20, RewardMoneyMax = 35}, -- set Enabled to false if you dont wanna Give Money
+        RewardMoney = { Enabled = true, RewardMoneyMin = 5, RewardMoneyMax = 10}, -- set Enabled to false if you dont wanna Give Money
     },
     {
         Type = 'Bring',
@@ -185,7 +198,7 @@ Config.Quests ={
             { Item = 'meat' , Label = 'Fleisch', Amount = 5},
         },
         RewardItem = { Enabled = true, Item = 'QuestToken', Label = 'Quest Token', RewardItemMin = 10, RewardItemMax = 25}, -- set Enabled to false if you dont wanna Give item
-        RewardMoney = { Enabled = true, RewardMoneyMin = 20, RewardMoneyMax = 35}, -- set Enabled to false if you dont wanna Give Money
+        RewardMoney = { Enabled = true, RewardMoneyMin = 5, RewardMoneyMax = 10}, -- set Enabled to false if you dont wanna Give Money
     },
     {
         Type = 'Bring',
@@ -197,7 +210,7 @@ Config.Quests ={
             { Item = 'water' , Label = 'Wasser', Amount = 2},
         },
         RewardItem = { Enabled = true, Item = 'QuestToken', Label = 'Quest Token', RewardItemMin = 10, RewardItemMax = 25}, -- set Enabled to false if you dont wanna Give item
-        RewardMoney = { Enabled = true, RewardMoneyMin = 20, RewardMoneyMax = 35}, -- set Enabled to false if you dont wanna Give Money
+        RewardMoney = { Enabled = true, RewardMoneyMin = 5, RewardMoneyMax = 10}, -- set Enabled to false if you dont wanna Give Money
     },
     {
         Type = 'Bring',
@@ -209,7 +222,7 @@ Config.Quests ={
             { Item = 'water' , Label = 'Wasser', Amount = 3},
         },
         RewardItem = { Enabled = true, Item = 'QuestToken', Label = 'Quest Token', RewardItemMin = 10, RewardItemMax = 25}, -- set Enabled to false if you dont wanna Give item
-        RewardMoney = { Enabled = true, RewardMoneyMin = 20, RewardMoneyMax = 35}, -- set Enabled to false if you dont wanna Give Money
+        RewardMoney = { Enabled = true, RewardMoneyMin = 5, RewardMoneyMax = 10}, -- set Enabled to false if you dont wanna Give Money
     },
     {
         Type = 'Bring',
@@ -221,7 +234,7 @@ Config.Quests ={
             { Item = 'Brotchen' , Label = 'Brötchen', Amount = 1},
         },
         RewardItem = { Enabled = true, Item = 'QuestToken', Label = 'Quest Token', RewardItemMin = 10, RewardItemMax = 25}, -- set Enabled to false if you dont wanna Give item
-        RewardMoney = { Enabled = true, RewardMoneyMin = 20, RewardMoneyMax = 35}, -- set Enabled to false if you dont wanna Give Money
+        RewardMoney = { Enabled = true, RewardMoneyMin = 5, RewardMoneyMax = 10}, -- set Enabled to false if you dont wanna Give Money
     },
     {
         Type = 'Bring',
@@ -233,7 +246,7 @@ Config.Quests ={
             { Item = 'ammopistolnormal' , Label = 'Pistolen Munition', Amount = 1},
         },
         RewardItem = { Enabled = true, Item = 'QuestToken', Label = 'Quest Token', RewardItemMin = 10, RewardItemMax = 25}, -- set Enabled to false if you dont wanna Give item
-        RewardMoney = { Enabled = true, RewardMoneyMin = 20, RewardMoneyMax = 35}, -- set Enabled to false if you dont wanna Give Money
+        RewardMoney = { Enabled = true, RewardMoneyMin = 5, RewardMoneyMax = 10}, -- set Enabled to false if you dont wanna Give Money
     },
     {
         Type = 'Bring',
@@ -244,7 +257,7 @@ Config.Quests ={
             { Item = 'hoe' , Label = 'Gartenharke', Amount = 1},
         },
         RewardItem = { Enabled = true, Item = 'QuestToken', Label = 'Quest Token', RewardItemMin = 10, RewardItemMax = 25}, -- set Enabled to false if you dont wanna Give item
-        RewardMoney = { Enabled = true, RewardMoneyMin = 20, RewardMoneyMax = 35}, -- set Enabled to false if you dont wanna Give Money
+        RewardMoney = { Enabled = true, RewardMoneyMin = 5, RewardMoneyMax = 10}, -- set Enabled to false if you dont wanna Give Money
     },
     {
         Type = 'Bring',
@@ -256,7 +269,7 @@ Config.Quests ={
             { Item = 'Seife' , Label = 'Seife', Amount = 1},
         },
         RewardItem = { Enabled = true, Item = 'QuestToken', Label = 'Quest Token', RewardItemMin = 10, RewardItemMax = 25}, -- set Enabled to false if you dont wanna Give item
-        RewardMoney = { Enabled = true, RewardMoneyMin = 20, RewardMoneyMax = 35}, -- set Enabled to false if you dont wanna Give Money
+        RewardMoney = { Enabled = true, RewardMoneyMin = 5, RewardMoneyMax = 10}, -- set Enabled to false if you dont wanna Give Money
     },
 }
 
@@ -270,216 +283,216 @@ Config.ShopSystem = {  -- !!!ONLY ENABLE 1 Money, Item Or Weapon. ONYL ENABLE ON
         Price = 1,-- Token Neeeded
         RewardItem = {Enabled = false, Title = 'Schildkröte', Item = 'HaustierTicket24' , Amount = 1},
         RewardWeapon = {Enabled = false, Title = 'Messer', Weapon = 'WEAPON_MELEE_KNIFE'},
-        RewardMoney = {Enabled = true, Title = 'Token für Geld: ', MoneyPerToken = 2},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
+        RewardMoney = {Enabled = true, Title = 'Token für Geld: ', MoneyPerToken = 0.22},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
     },
     {
         ItemNeeded = 'QuestToken',-- DB Name
         Price = 10,-- Token Neeeded
         RewardItem = {Enabled = false, Title = 'Schildkröte', Item = 'HaustierTicket24' , Amount = 1},
         RewardWeapon = {Enabled = false, Title = 'Messer', Weapon = 'WEAPON_MELEE_KNIFE'},
-        RewardMoney = {Enabled = true, Title = 'Token für Geld: ', MoneyPerToken = 2},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
+        RewardMoney = {Enabled = true, Title = 'Token für Geld: ', MoneyPerToken = 0.22},
     },
     {
         ItemNeeded = 'QuestToken',-- DB Name
         Price = 100,-- Token Neeeded
         RewardItem = {Enabled = false, Title = 'Schildkröte', Item = 'HaustierTicket24' , Amount = 1},
         RewardWeapon = {Enabled = false, Title = 'Messer', Weapon = 'WEAPON_MELEE_KNIFE'},
-        RewardMoney = {Enabled = true, Title = 'Token für Geld: $ ', MoneyPerToken = 3},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
+        RewardMoney = {Enabled = true, Title = 'Token für Geld: $ ', MoneyPerToken = 0.22},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
     },
     {
         ItemNeeded = 'QuestToken',-- DB Name
         Price = 100,-- Token Neeeded
         RewardItem = {Enabled = true, Title = 'Schildkröte', Item = 'HaustierTicket24' , Amount = 1},
         RewardWeapon = {Enabled = false, Title = 'Messer', Weapon = 'WEAPON_MELEE_KNIFE'},
-        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 1},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
+        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 0.22},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
     },
     {
         ItemNeeded = 'QuestToken',
         Price = 250,
         RewardItem = {Enabled = true, Title = 'Bieber', Item = 'HaustierTicket1' , Amount = 1},
         RewardWeapon = {Enabled = false, Title = 'Messer', Weapon = 'WEAPON_MELEE_KNIFE'},
-        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 1},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
+        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 0.22},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
     },
     {
         ItemNeeded = 'QuestToken',
         Price = 300,
         RewardItem = {Enabled = true, Title = 'Waschbär', Item = 'HaustierTicket25' , Amount = 1},
         RewardWeapon = {Enabled = false, Title = 'Messer', Weapon = 'WEAPON_MELEE_KNIFE'},
-        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 1},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
+        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 0.22},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
     },
     {
         ItemNeeded = 'QuestToken',
         Price = 300,
         RewardItem = {Enabled = true, Title = 'Gürteltier', Item = 'HaustierTicket6' , Amount = 1},
         RewardWeapon = {Enabled = false, Title = 'Messer', Weapon = 'WEAPON_MELEE_KNIFE'},
-        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 1},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
+        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 0.22},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
     },
     {
         ItemNeeded = 'QuestToken',
         Price = 350,
         RewardItem = {Enabled = true, Title = 'Krabbe', Item = 'HaustierTicket4' , Amount = 1},
         RewardWeapon = {Enabled = false, Title = 'Messer', Weapon = 'WEAPON_MELEE_KNIFE'},
-        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 1},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
+        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 0.22},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
     },
     {
         ItemNeeded = 'QuestToken',
         Price = 350,
         RewardItem = {Enabled = true, Title = 'Stinktier', Item = 'HaustierTicket10' , Amount = 1},
         RewardWeapon = {Enabled = false, Title = 'Messer', Weapon = 'WEAPON_MELEE_KNIFE'},
-        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 1},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
+        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 0.22},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
     },
     {
         ItemNeeded = 'QuestToken',
         Price = 400,
         RewardItem = {Enabled = true, Title = 'Fuchs', Item = 'HaustierTicket8' , Amount = 1},
         RewardWeapon = {Enabled = false, Title = 'Messer', Weapon = 'WEAPON_MELEE_KNIFE'},
-        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 1},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
+        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 0.22},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
     },
     {
         ItemNeeded = 'QuestToken',
         Price = 400,
         RewardItem = {Enabled = true, Title = 'Schaf', Item = 'HaustierTicket5' , Amount = 1},
         RewardWeapon = {Enabled = false, Title = 'Messer', Weapon = 'WEAPON_MELEE_KNIFE'},
-        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 1},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
+        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 0.22},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
     },
     {
         ItemNeeded = 'QuestToken',
         Price = 400,
         RewardItem = {Enabled = true, Title = 'Ziege', Item = 'HaustierTicket9' , Amount = 1},
         RewardWeapon = {Enabled = false, Title = 'Messer', Weapon = 'WEAPON_MELEE_KNIFE'},
-        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 1},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
+        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 0.22},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
     },
     {
         ItemNeeded = 'QuestToken',
         Price = 500,
         RewardItem = {Enabled = true, Title = 'Bulle', Item = 'HaustierTicket2' , Amount = 1},
         RewardWeapon = {Enabled = false, Title = 'Messer', Weapon = 'WEAPON_MELEE_KNIFE'},
-        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 1},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
+        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 0.22},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
     },
     {
         ItemNeeded = 'QuestToken',
         Price = 500,
         RewardItem = {Enabled = true, Title = 'Kuh', Item = 'HaustierTicket3' , Amount = 1},
         RewardWeapon = {Enabled = false, Title = 'Messer', Weapon = 'WEAPON_MELEE_KNIFE'},
-        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 1},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
+        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 0.22},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
     },
     {
         ItemNeeded = 'QuestToken',
         Price = 600,
         RewardItem = {Enabled = true, Title = 'Elch', Item = 'HaustierTicket7' , Amount = 1},
         RewardWeapon = {Enabled = false, Title = 'Messer', Weapon = 'WEAPON_MELEE_KNIFE'},
-        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 1},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
+        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 0.22},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
     },
     {
         ItemNeeded = 'QuestToken',
         Price = 700,
         RewardItem = {Enabled = true, Title = 'Muli', Item = 'HaustierTicket26' , Amount = 1},
         RewardWeapon = {Enabled = false, Title = 'Messer', Weapon = 'WEAPON_MELEE_KNIFE'},
-        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 1},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
+        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 0.22},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
     },
     {
         ItemNeeded = 'QuestToken',
         Price = 800,
         RewardItem = {Enabled = true, Title = 'Muli Painted', Item = 'HaustierTicket27' , Amount = 1},
         RewardWeapon = {Enabled = false, Title = 'Messer', Weapon = 'WEAPON_MELEE_KNIFE'},
-        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 1},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
+        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 0.22},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
     },
     {
         ItemNeeded = 'QuestToken',
         Price = 900,
         RewardItem = {Enabled = true, Title = 'American Standard ( Pferd )', Item = 'HaustierTicket11' , Amount = 1},
         RewardWeapon = {Enabled = false, Title = 'Messer', Weapon = 'WEAPON_MELEE_KNIFE'},
-        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 1},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
+        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 0.22},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
     },
     {
         ItemNeeded = 'QuestToken',
         Price = 900,
         RewardItem = {Enabled = true, Title = 'Appaloosa ( Pferd )', Item = 'HaustierTicket12' , Amount = 1},
         RewardWeapon = {Enabled = false, Title = 'Messer', Weapon = 'WEAPON_MELEE_KNIFE'},
-        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 1},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
+        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 0.22},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
     },
     {
         ItemNeeded = 'QuestToken',
         Price = 900,
         RewardItem = {Enabled = true, Title = 'Arabian ( Pferd )', Item = 'HaustierTicket13' , Amount = 1},
         RewardWeapon = {Enabled = false, Title = 'Messer', Weapon = 'WEAPON_MELEE_KNIFE'},
-        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 1},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
+        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 0.22},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
     },
     {
         ItemNeeded = 'QuestToken',
         Price = 900,
         RewardItem = {Enabled = true, Title = 'Kladruber ( Pferd )', Item = 'HaustierTicket14' , Amount = 1},
         RewardWeapon = {Enabled = false, Title = 'Messer', Weapon = 'WEAPON_MELEE_KNIFE'},
-        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 1},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
+        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 0.22},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
     },
     {
         ItemNeeded = 'QuestToken',
         Price = 900,
         RewardItem = {Enabled = true, Title = 'Missouri Foxtrotter ( Pferd )', Item = 'HaustierTicket15' , Amount = 1},
         RewardWeapon = {Enabled = false, Title = 'Messer', Weapon = 'WEAPON_MELEE_KNIFE'},
-        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 1},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
+        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 0.22},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
     },
     {
         ItemNeeded = 'QuestToken',
         Price = 900,
         RewardItem = {Enabled = true, Title = 'Shire ( Pferd )', Item = 'HaustierTicket16' , Amount = 1},
         RewardWeapon = {Enabled = false, Title = 'Messer', Weapon = 'WEAPON_MELEE_KNIFE'},
-        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 1},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
+        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 0.22},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
     },
     {
         ItemNeeded = 'QuestToken',
-        Price = 1500,
+        Price = 1000,
         RewardItem = {Enabled = true, Title = 'Alligator', Item = 'HaustierTicket17' , Amount = 1},
         RewardWeapon = {Enabled = false, Title = 'Messer', Weapon = 'WEAPON_MELEE_KNIFE'},
-        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 1},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
+        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 0.22},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
     },
     {
         ItemNeeded = 'QuestToken',
-        Price = 1500,
+        Price = 1000,
         RewardItem = {Enabled = true, Title = 'Bär', Item = 'HaustierTicket19' , Amount = 1},
         RewardWeapon = {Enabled = false, Title = 'Messer', Weapon = 'WEAPON_MELEE_KNIFE'},
-        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 1},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
+        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 0.22},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
+    },
+    {
+        ItemNeeded = 'QuestToken',
+        Price = 1000,
+        RewardItem = {Enabled = true, Title = 'Schwarzbär', Item = 'HaustierTicket20' , Amount = 1},
+        RewardWeapon = {Enabled = false, Title = 'Messer', Weapon = 'WEAPON_MELEE_KNIFE'},
+        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 0.22},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
+    },
+    {
+        ItemNeeded = 'QuestToken',
+        Price = 1250,
+        RewardItem = {Enabled = true, Title = 'Wolf', Item = 'HaustierTicket23' , Amount = 1},
+        RewardWeapon = {Enabled = false, Title = 'Messer', Weapon = 'WEAPON_MELEE_KNIFE'},
+        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 0.22},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
     },
     {
         ItemNeeded = 'QuestToken',
         Price = 1500,
-        RewardItem = {Enabled = true, Title = 'Schwarzbär', Item = 'HaustierTicket20' , Amount = 1},
-        RewardWeapon = {Enabled = false, Title = 'Messer', Weapon = 'WEAPON_MELEE_KNIFE'},
-        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 1},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
-    },
-    {
-        ItemNeeded = 'QuestToken',
-        Price = 1750,
-        RewardItem = {Enabled = true, Title = 'Wolf', Item = 'HaustierTicket23' , Amount = 1},
-        RewardWeapon = {Enabled = false, Title = 'Messer', Weapon = 'WEAPON_MELEE_KNIFE'},
-        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 1},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
-    },
-    {
-        ItemNeeded = 'QuestToken',
-        Price = 2000,
         RewardItem = {Enabled = true, Title = 'Panther', Item = 'HaustierTicket21' , Amount = 1},
         RewardWeapon = {Enabled = false, Title = 'Messer', Weapon = 'WEAPON_MELEE_KNIFE'},
-        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 1},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
+        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 0.22},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
     },
     {
         ItemNeeded = 'QuestToken',
-        Price = 2000,
+        Price = 1500,
         RewardItem = {Enabled = true, Title = 'Puma', Item = 'HaustierTicket22' , Amount = 1},
         RewardWeapon = {Enabled = false, Title = 'Messer', Weapon = 'WEAPON_MELEE_KNIFE'},
-        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 1},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
+        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 0.22},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
     },
     {
         ItemNeeded = 'QuestToken',
-        Price = 5000,
+        Price = 2500,
         RewardItem = {Enabled = true, Title = 'Legendäres Wildschwein', Item = 'HaustierTicket' , Amount = 1},
         RewardWeapon = {Enabled = false, Title = 'Messer', Weapon = 'WEAPON_MELEE_KNIFE'},
-        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 1},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
+        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 0.22},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
     },
     {
         ItemNeeded = 'QuestToken',
-        Price = 6000,
+        Price = 3000,
         RewardItem = {Enabled = true, Title = 'Legendärer Alligator', Item = 'HaustierTicket18' , Amount = 1},
         RewardWeapon = {Enabled = false, Title = 'Messer', Weapon = 'WEAPON_MELEE_KNIFE'},
-        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 1},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
+        RewardMoney = {Enabled = false, Title = 'Token für Geld: ', MoneyPerToken = 0.22},  --- Money Per Token Means Price * MoneyPerToken = Amount you Get. if you make 2 you get 200$ for 100 Tokens
     },
 }

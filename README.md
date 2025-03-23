@@ -25,6 +25,8 @@
 - 1.1.1 New Features
 - 1.1.2 
 - Added Battlepass Support for MMS-Battlepass
+- 1.1.3 Added Blacklisted Jobs 
+- Added Quest Cooldowns After Completed the Quest
 
 # installation 
 

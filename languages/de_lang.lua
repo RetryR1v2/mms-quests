@@ -1,7 +1,7 @@
 Locales["de_lang"] = {
     PromptName = 'Quest Annehmen',
     BlipNameQuestgeber = 'Questgeber',
-    QuestMenuHeader = 'The Heartland Revengers Quests',
+    QuestMenuHeader = 'Tal der Hoffnung Quests',
     CloseQuestMenu = 'Quest Menü Schließen',
     QuestStart = 'Starte eine Quest',
     QuestShop = 'Quest Token Eintauschen',
@@ -14,7 +14,7 @@ Locales["de_lang"] = {
     YouGot = 'Du Bekommst: ',
     And = ' Und ',
     Back = 'Zurück',
-    TokenShopHeader = 'The Heartland Revengers Token Shop',
+    TokenShopHeader = 'Tal der Hoffnung Token Shop',
     CloseTokenShop = 'Token Shop Schließen',
     For = ' Für ',
     BuyForXToken = ' Quest Token kaufen!',
@@ -24,7 +24,7 @@ Locales["de_lang"] = {
     CanDoQuestAgain = 'Die Wartezeit für Quests ist Abgelaufen',
     YouAbortedAlready = 'Du hast eine Quest Abgebrochen Bitte Warte Minuten: ',
     CloseActiveQuestMenu = 'Schließen',
-    ActiveQuestHeader = 'The Heartland Revengers Quests',
+    ActiveQuestHeader = 'Tal der Hoffnung Quests',
     MissingItems = 'Oh Nein, Hier fehlt etwas Bitte besorge die folgenen Gegenstände: ',
     BringPlease = 'Bitte bringe: ',
     DeliverItems = 'Gegenstände Übergeben',
@@ -33,4 +33,8 @@ Locales["de_lang"] = {
     WHText = 'Der Spieler: ',
     WHId = ' Mit der Charakter ID: ',
     WHGot = ' Bekommt von Quest: ',
+    -- NEW
+    QuestInCooldown = 'Bitte Warte ',
+    QuestInCooldown2 = ' Minuten bis du Wieder eine Quest Starten kannst.',
+    NotAllowedToDoQuests = 'Mit deinem Beruf darfst du keine Quests machen',
 }

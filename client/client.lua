@@ -13,10 +13,11 @@ local GPSCoords = nil
 local AbortedQuest = false
 local AbortQuestTimer = 0
 local QuestOpened = false
-local ButtoLabel = 'nil'
-local RT = nil
-local RTNeed = ''
-local RTPrice = 0
+
+local CooldownActive = false
+local CooldownTimer = 0
+
+local QuestAllowed = true
 ---------------------------------------------------------------------------------
 
 Citizen.CreateThread(function()
@@ -74,7 +75,15 @@ Citizen.CreateThread(function()
                 StartQuestPrompt:ShowGroup(_U('PromptName'))
 
                 if startquestprompt:HasCompleted() then
-                    TriggerEvent('mms-quests:client:openquestboard')
+                    if not CooldownActive then
+                        if QuestAllowed then
+                            TriggerEvent('mms-quests:client:openquestboard')
+                        else
+                            VORPcore.NotifyTip(_U('NotAllowedToDoQuests') ,5000)
+                        end
+                    else
+                        VORPcore.NotifyTip(_U('QuestInCooldown') .. math.floor(CooldownTimer) .. _U('QuestInCooldown2') ,5000)
+                    end
                 end
             end
             end
@@ -87,6 +96,23 @@ AddEventHandler('mms-quests:client:openquestboard',function()
     QuestMenu:Open({
         startupPage = QuestMenuPage1,
     })
+end)
+
+RegisterNetEvent('vorp:SelectedCharacter')
+AddEventHandler('vorp:SelectedCharacter', function()
+    Citizen.Wait(10000)
+    TriggerServerEvent('mms-quests:server:GetUserData')
+end)
+
+RegisterNetEvent('mms-quests:client:ReciveUserData')
+AddEventHandler('mms-quests:client:ReciveUserData',function(Job)
+    if Config.BlacklistedJobsSytem then
+        for h,v in ipairs(Config.BlacklistedJobs) do
+            if Job == v.Job then
+                QuestAllowed = false
+            end
+        end
+    end
 end)
 
 -----------------------------------------------------------------------------------
@@ -537,8 +563,25 @@ AddEventHandler('mms-quests:client:EndQuest',function()
         ActiveQuestBlip:Remove()
         ClearGpsMultiRoute(GPSCoords)
         QuestActive = false
+        if Config.CoolDownActive then
+            CooldownActive = true
+            CooldownTimer = Config.CooldownTimer * 60000
+            TriggerEvent('mms-quests:client:StartQuestCooldown')
+        end
         QuestMenu:Close({ 
         })
+    end
+end)
+
+RegisterNetEvent('mms-quests:client:StartQuestCooldown')
+AddEventHandler('mms-quests:client:StartQuestCooldown',function()
+    Citizen.Wait(250)
+    while CooldownActive do
+        Citizen.Wait(30000)
+        CooldownTimer = CooldownTimer - 30000
+        if CooldownTimer <= 0 then
+            CooldownActive = false
+        end
     end
 end)
 

@@ -32,6 +32,13 @@ local function CheckVersion()
 end
 --------------------------------------------------------------------------------------------------
 
+RegisterServerEvent('mms-quests:server:GetUserData',function()
+    local src = source
+    local Character = VORPcore.getUser(src).getUsedCharacter
+    local Job = Character.job
+    TriggerClientEvent('mms-quests:client:ReciveUserData',src,Job)
+end)
+
 RegisterServerEvent('mms-quests:client:DeliverItems',function(QuestData)
     local src = source
     local Character = VORPcore.getUser(src).getUsedCharacter
