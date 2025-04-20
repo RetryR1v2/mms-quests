@@ -1,5 +1,5 @@
 Locales["en_lang"] = {
-    PromptName = 'Quest Accept',
+    PromptName = 'Quest Menu',
     BlipNameQuestgeber = 'Quest giver',
     QuestMenuHeader = 'The Heartland Revengers Quests',
     CloseQuestMenu = 'Quest Menu Close',
