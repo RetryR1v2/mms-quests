@@ -174,8 +174,9 @@ Citizen.CreateThread(function ()
         },
     }, function()
         if not QuestActive and not AbortedQuest then
-            TriggerEvent('mms-quests:client:StartQuest')
-            VORPcore.NotifyTip(_U('QuestStarted'),"right",4000)
+	    local RandomQuest = math.random(1,#Config.Quests)
+            local QuestData = Config.Quests[RandomQuest]
+            TriggerEvent('mms-quests:client:PreviewQuest', QuestData)
         elseif QuestActive then
             VORPcore.NotifyTip(_U('AlreadyActiveQuest'),"right",4000)
         elseif AbortedQuest then
@@ -310,7 +311,61 @@ Citizen.CreateThread(function ()
 end
 end)
 
+RegisterNetEvent('mms-quests:client:PreviewQuest')
+AddEventHandler('mms-quests:client:PreviewQuest', function(QuestData)
+    local PreviewPage = QuestMenu:RegisterPage('previewQuest')
+    PreviewPage:RegisterElement('header', {
+        value = QuestData.Title,
+        slot = 'header',
+        style = { ['color'] = 'orange' }
+    })
+    PreviewPage:RegisterElement('line', { slot = 'header', style = { ['color'] = 'orange' } })
+    PreviewPage:RegisterElement('textdisplay', {
+        value = _U('ItemsRequiredPreview'),
+        style = { ['color'] = 'orange' }
+    })
 
+    for i, v in ipairs(QuestData.ItemsToBring) do
+        PreviewPage:RegisterElement('button', {
+            label = _U('BringPlease') .. v.Amount .. ' ' .. v.Label,
+            style = {
+                ['background-color'] = '#FF8C00',
+                ['color'] = 'orange',
+                ['border-radius'] = '6px'
+            },
+        }, function() end)
+    end
+
+    -- Accept button
+    PreviewPage:RegisterElement('button', {
+        label = _U('AcceptQuest'),
+        style = {
+            ['background-color'] = '#28a745',
+            ['color'] = 'white',
+            ['border-radius'] = '6px'
+        },
+    }, function()
+        QuestMenu:Close({})
+        TriggerEvent('mms-quests:client:StartQuestWithData', QuestData)
+        VORPcore.NotifyTip(_U('QuestStarted'), "right", 4000)
+    end)
+
+    -- Cancel button
+    PreviewPage:RegisterElement('button', {
+        label = _U('Cancel'),
+        style = {
+            ['background-color'] = '#dc3545',
+            ['color'] = 'white',
+            ['border-radius'] = '6px'
+        },
+    }, function()
+        QuestMenu:Close({})
+    end)
+
+    QuestMenu:Open({
+        startupPage = PreviewPage,
+    })
+end)
 
 -----------------------------------------------------------------------------------
 ----------------------------------- End Menü --------------------------------------
@@ -321,14 +376,11 @@ end)
 -----------------------------------------------------------------------------------
 
 RegisterNetEvent('mms-quests:client:StartQuest')
-AddEventHandler('mms-quests:client:StartQuest',function()
+AddEventHandler('mms-quests:client:StartQuest',function(QuestData)
     QuestActive = true
-    local RandomQuest = math.random(1,#Config.Quests)
-    local QuestData = Config.Quests[RandomQuest]
     GPSCoords = QuestData.Coords
-    -- Create Blip
     ActiveQuestBlip = BccUtils.Blips:SetBlip(QuestData.Title, 'blip_mp_spawnpoint', 3.0, QuestData.Coords.x,QuestData.Coords.y,QuestData.Coords.z)
-    -- Create GPS
+
     StartGpsMultiRoute(GetHashKey("COLOR_YELLOW"), true, true)
     AddPointToGpsMultiRoute(GPSCoords)
     SetGpsMultiRouteRender(true)
@@ -337,19 +389,16 @@ AddEventHandler('mms-quests:client:StartQuest',function()
     local TitlePrompt = QuestDataPrompt:RegisterPrompt(QuestData.Title, 0x760A9C6F, 1, 1, true, 'hold', {timedeventhash = 'MEDIUM_TIMED_EVENT'})
     while true do
         Wait(1)
-        
         local playerCoords = GetEntityCoords(PlayerPedId())
         local dist2 = #(playerCoords - QuestData.Coords)
         if dist2 < 3 then
             QuestDataPrompt:ShowGroup(_U('ActiveQuest') .. QuestData.Title)
-
             if TitlePrompt:HasCompleted() then
                 CrouchAnim()
-                progressbar.start(QuestData.Title, 7000, function ()
-                end, 'linear')
+                progressbar.start(QuestData.Title, 7000, function () end, 'linear')
                 Wait(7000)
                 ClearPedTasks(PlayerPedId())
-                TriggerEvent('mms-quests:client:WaitForItems',QuestData)
+                TriggerEvent('mms-quests:client:WaitForItems', QuestData)
                 break
             end
         end
