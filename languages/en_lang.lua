@@ -33,7 +33,11 @@ Locales["en_lang"] = {
     WHText = 'The player: ',
     WHId = ' With the character ID: ',
     WHGot = ' Gets from Quest: ',
-	ItemsRequiredPreview = 'Items Required for this Quest:',
+    ItemsRequiredPreview = 'Items Required for this Quest:',
     AcceptQuest = 'Start Quest',
     Cancel = 'Cancel',
+	-----NEW-----
+    QuestInCooldown = 'Please wait ',
+    QuestInCooldown2 = ' minutes until you can start a quest again.',
+    NotAllowedToDoQuests = 'With your profession you are not allowed to do quests',
 }
