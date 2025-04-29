@@ -33,6 +33,9 @@ Locales["de_lang"] = {
     WHText = 'Der Spieler: ',
     WHId = ' Mit der Charakter ID: ',
     WHGot = ' Bekommt von Quest: ',
+    ItemsRequiredPreview = 'Items Required for this Quest:',
+    AcceptQuest = 'Start Quest',
+    Cancel = 'Cancel',
     -- NEW
     QuestInCooldown = 'Bitte Warte ',
     QuestInCooldown2 = ' Minuten bis du Wieder eine Quest Starten kannst.',

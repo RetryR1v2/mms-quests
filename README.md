@@ -27,6 +27,7 @@
 - Added Battlepass Support for MMS-Battlepass
 - 1.1.3 Added Blacklisted Jobs 
 - Added Quest Cooldowns After Completed the Quest
+- 1.1.4 Merged Pull Request Added Quest Preview from https://github.com/imherhela 
 
 # installation 
 
@@ -41,3 +42,4 @@
 # CREDITS
 - Discord: https://discord.gg/Hua9DFXZYN
 - GitHub: https://github.com/RetryR1v2/mms-quests
+- https://github.com/imherhela
