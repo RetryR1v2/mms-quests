@@ -317,17 +317,22 @@ AddEventHandler('mms-quests:client:PreviewQuest', function(QuestData)
     PreviewPage:RegisterElement('header', {
         value = QuestData.Title,
         slot = 'header',
-        style = { ['color'] = 'orange' }
+        style = { 
+            ['color'] = 'orange'
+        }
     })
     PreviewPage:RegisterElement('line', { slot = 'header', style = { ['color'] = 'orange' } })
     PreviewPage:RegisterElement('textdisplay', {
         value = _U('ItemsRequiredPreview'),
-        style = { ['color'] = 'orange' }
+        style = { 
+            ['color'] = 'orange' 
+        }
     })
 
     for i, v in ipairs(QuestData.ItemsToBring) do
+        local Buttonlabel = _U('BringPlease') .. v.Amount .. ' ' .. v.Label
         PreviewPage:RegisterElement('button', {
-            label = _U('BringPlease') .. v.Amount .. ' ' .. v.Label,
+            label = Buttonlabel,
             style = {
                 ['background-color'] = '#FF8C00',
                 ['color'] = 'orange',
@@ -340,8 +345,8 @@ AddEventHandler('mms-quests:client:PreviewQuest', function(QuestData)
     PreviewPage:RegisterElement('button', {
         label = _U('AcceptQuest'),
         style = {
-            ['background-color'] = '#28a745',
-            ['color'] = 'white',
+            ['background-color'] = '#FF8C00',
+            ['color'] = 'orange',
             ['border-radius'] = '6px'
         },
     }, function()
@@ -354,8 +359,8 @@ AddEventHandler('mms-quests:client:PreviewQuest', function(QuestData)
     PreviewPage:RegisterElement('button', {
         label = _U('Cancel'),
         style = {
-            ['background-color'] = '#dc3545',
-            ['color'] = 'white',
+            ['background-color'] = '#FF8C00',
+            ['color'] = 'orange',
             ['border-radius'] = '6px'
         },
     }, function()
@@ -375,8 +380,8 @@ end)
 ---------------------------------- Start Quest ------------------------------------
 -----------------------------------------------------------------------------------
 
-RegisterNetEvent('mms-quests:client:StartQuest')
-AddEventHandler('mms-quests:client:StartQuest',function(QuestData)
+RegisterNetEvent('mms-quests:client:StartQuestWithData')
+AddEventHandler('mms-quests:client:StartQuestWithData',function(QuestData)
     QuestActive = true
     GPSCoords = QuestData.Coords
     ActiveQuestBlip = BccUtils.Blips:SetBlip(QuestData.Title, 'blip_mp_spawnpoint', 3.0, QuestData.Coords.x,QuestData.Coords.y,QuestData.Coords.z)

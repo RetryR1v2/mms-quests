@@ -28,6 +28,7 @@
 - 1.1.3 Added Blacklisted Jobs 
 - Added Quest Cooldowns After Completed the Quest
 - 1.1.4 Merged Pull Request Added Quest Preview from https://github.com/imherhela 
+- 1.1.5 Fixed Bugs from PullRequest
 
 # installation 
 
